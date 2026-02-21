@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy Đếm Số</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        #hienThiSo {
+            font-size: 72px;
+            font-weight: 800;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #nutTru1So {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        #nutTru1So:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        #nutTru1So:active {
+            transform: translateY(-1px);
+        }
+
+        #nutVe0 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            grid-column: 2;
+        }
+
+        #nutVe0:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(250, 112, 154, 0.4);
+        }
+
+        #nutVe0:active {
+            transform: translateY(-1px);
+        }
+
+        #nutCong1So {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        #nutCong1So:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+        }
+
+        #nutCong1So:active {
+            transform: translateY(-1px);
+        }
+
+        .info {
+            font-size: 14px;
+            color: #999;
+            margin-top: 25px;
+            line-height: 1.6;
+        }
+
+        .info p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            #hienThiSo {
+                font-size: 56px;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+
+            button {
+                padding: 12px 15px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">⭐ Máy Đếm Số</div>
+        <div class="display">
+            <p id="hienThiSo">0</p>
+        </div>
+        <div class="button-group">
+            <button id="nutTru1So">−</button>
+            <button id="nutVe0">Reset</button>
+            <button id="nutCong1So">+</button>
+        </div>
+        <div class="info">
+            <p>👆 Nhấn nút + để tăng</p>
+            <p>👇 Nhấn nút − để giảm</p>
+            <p>🔄 Nhấn Reset để đưa về 0</p>
+        </div>
+    </div>
+
+    <script>
+        const hienThiSo = document.getElementById("hienThiSo");
+        const nutTru1So = document.getElementById("nutTru1So");
+        const nutVe0 = document.getElementById("nutVe0");
+        const nutCong1So = document.getElementById("nutCong1So");
+        
+        let soDem = 0;
+
+        function hienThiKetQua() {
+            hienThiSo.textContent = soDem;
+        }
+
+        nutCong1So.addEventListener("click", () => {
+            soDem++;
+            hienThiKetQua();
+        });
+
+        nutVe0.addEventListener("click", () => {
+            soDem = 0;
+            hienThiKetQua();
+        });
+
+        nutTru1So.addEventListener("click", () => {
+            soDem--;
+            hienThiKetQua();
+        });
+    </script>
+</body>
+</html>
